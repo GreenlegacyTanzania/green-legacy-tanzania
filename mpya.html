@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN LEGACY TANZANIA | Official Website</title>
+    <style>
+        /* CSS YA JUMLA */
+        :root {
+            --primary-green: #2d5a27;
+            --secondary-green: #4caf50;
+            --light-bg: #f4fbf3;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --text-grey: #555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        
+        /* Navigation */
+        nav {
+            background: var(--white); display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary-green); text-transform: uppercase; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary-green); }
+
+        /* Global Sections */
+        section { padding: 100px 8% 60px; border-bottom: 1px solid #eee; }
+        h2 { font-size: 2.5rem; color: var(--primary-green); text-align: center; margin-bottom: 30px; text-transform: uppercase; }
+        .intro-text { max-width: 900px; margin: 0 auto 40px; text-align: center; font-size: 1.1rem; color: var(--text-grey); }
+
+        /* SECTION 1: HOME (HERO) */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+        }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; }
+        .btn-main { padding: 15px 35px; background: var(--primary-green); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .btn-main:hover { background: var(--secondary-green); transform: translateY(-3px); }
+
+        /* SECTION 2: ABOUT US */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .about-card { background: var(--light-bg); padding: 30px; border-radius: 15px; border-top: 5px solid var(--primary-green); }
+        .about-card h3 { margin-bottom: 15px; color: var(--primary-green); }
+
+        .objectives-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+        .obj-item { background: white; padding: 20px; border: 1px solid #ddd; border-radius: 10px; transition: 0.3s; }
+        .obj-item:hover { border-color: var(--primary-green); transform: translateY(-5px); }
+
+        /* SECTION 3: PROGRAMS */
+        .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .program-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 4px solid var(--primary-green); }
+        .program-img { width: 100%; height: 200px; object-fit: cover; background: #eee; }
+        .program-info { padding: 20px; }
+        .program-info h3 { font-size: 1.2rem; color: var(--primary-green); margin-bottom: 10px; }
+        .program-info ul { list-style: none; font-size: 0.85rem; color: #666; }
+        .program-info ul li::before { content: "✓ "; color: var(--primary-green); font-weight: bold; }
+
+        /* SECTION 4: GET INVOLVED & FORMS */
+        .involve-card { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 8px solid var(--primary-green); }
+        .form-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: #f9f9f9; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .form-mini input, .form-mini select, .form-mini textarea { padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; }
+        .full-width { grid-column: span 2; }
+        .btn-send { grid-column: span 2; background: var(--primary-green); color: white; border: none; padding: 12px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+
+        /* SECTION 5: DONATE */
+        .donate-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+        .impact-table { background: var(--light-bg); padding: 30px; border-radius: 15px; }
+        .impact-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; font-weight: bold; }
+        .big-donate-btn { display: block; background: var(--primary-green); color: white; text-align: center; padding: 25px; font-size: 1.5rem; text-decoration: none; border-radius: 50px; margin: 30px 0; font-weight: bold; box-shadow: 0 10px 20px rgba(45,90,39,0.3); }
+
+        /* SECTION 6: CONTACT US */
+        .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
+        .contact-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { padding: 10px 15px; background: #eee; border-radius: 5px; text-decoration: none; color: var(--primary-green); font-weight: bold; }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .about-grid, .donate-container, .contact-container, .form-mini { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .full-width, .btn-send { grid-column: span 1; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Green Legacy Tanzania</div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#programs">PROGRAMS</a></li>
+            <li><a href="#get-involved">GET INVOLVED</a></li>
+            <li><a href="#donate">DONATE</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Green Legacy Tanzania</h1>
+            <p>Green Legacy Tanzania was established with a strong commitment to addressing environmental challenges facing communities across Tanzania. We empower youth and women to actively participate in green development and environmental protection.</p>
+            <a href="#about" class="btn-main">Learn More About Us</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Who We Are</h2>
+        <p class="intro-text">Green Legacy Tanzania is a community-driven environmental organization committed to promoting conservation, climate resilience, and sustainable development.</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Our Vision</h3>
+                <p>To build a sustainable society that respects, protects, and utilizes natural resources responsibly for the benefit of present and future generations.</p>
+            </div>
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p>To empower communities to actively participate in environmental conservation through education, campaigns, social projects, and national and international collaboration.</p>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 50px;">Our Core Objectives</h2>
+        <div class="objectives-grid">
+            <div class="obj-item">Increase public awareness of environmental conservation and climate change.</div>
+            <div class="obj-item">Promote tree planting to reduce deforestation and safeguard biodiversity.</div>
+            <div class="obj-item">Empower youth and women through green employment opportunities.</div>
+            <div class="obj-item">Promote environmental cleanliness, recycling, and sustainable resource use.</div>
+            <div class="obj-item">Provide environmental education to schools and universities.</div>
+        </div>
+    </section>
+
+    <section id="programs" style="background: var(--light-bg);">
+        <h2>Our Programs</h2>
+        <p class="intro-text">Driving Sustainable Environmental Solutions in Tanzania through action, awareness, and community participation.</p>
+        
+        <div class="programs-grid">
+            <div class="program-card">
+			<img src="21.jpg" alt="Tree Planting" class="program-img">
+			<img src="27.jpg" alt="Tree Planting" class="program-img">
+			<img src="FFFF.jpg" alt="Tree Planting" class="program-img">
+			<img src="GGG.jpg" alt="Tree Planting" class="program-img">
+			<img src="III.jpg" alt="Tree Planting" class="program-img">
+			<img src="HHH.jpg" alt="Tree Planting" class="program-img">
+                <div class="program-info">
+                    <h3>Tree Planting & Ecosystem Restoration</h3>
+                    <p>Restoring natural habitats and involving communities in long-term stewardship.</p>
+                    <ul>
+                        <li>Community Campaigns</li>
+                        <li>Sustainable Tree Care</li>
+                        <li>Climate Resilience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="program-card">
+			<img src="eee.jpg" alt="Tree Planting" class="program-img">
+			<img src="aaa.jpg" alt="Tree Planting" class="program-img">
+			<marquee behavior="scroll" direction="top" amount="90">
+			<img src="bbb.jpg" alt="Tree Planting" class="program-img">
+			<img src="ccc.jpg" alt="Tree Planting" class="program-img">
+			</marquee>
+			<marquee behavior="scroll" direction="right" amount="10">
+			<img src="ddd.jpg" alt="Tree Planting" class="program-img">
+			</marquee>
+                <div class="program-info">
+                    <h3>Climate Change Awareness & Advocacy</h3>
+                    <p>Educating and inspiring communities to take action against climate impacts.</p>
+                    <ul>
+                        <li>Educational Workshops</li>
+                        <li>Public Advocacy</li>
+                        <li>Digital Campaigns</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="program-card">
+			<img src="111.jpg" alt="Tree Planting" class="program-img">
+			<img src="222.jpg" alt="Tree Planting" class="program-img">
+			<img src="333.jpg" alt="Tree Planting" class="program-img">
+                <div class="program-info">
+                    <h3>Youth & Women Green Empowerment</h3>
+                    <p>Equipping youth and women with skills to lead eco-friendly businesses.</p>
+                    <ul>
+                        <li>Entrepreneurship Training</li>
+                        <li>Mentorship</li>
+                        <li>Green Job Access</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="program-card">
+			<img src="d.jpg" alt="Tree Planting" class="program-img">
+			<img src="a.jpg" alt="Tree Planting" class="program-img">
+			<img src="b.jpg" alt="Tree Planting" class="program-img">
+			<marquee behavior="scroll" direction="left" amount="10">
+			<img src="c.jpg" alt="Tree Planting" class="program-img">
+			<img src="e.jpg" alt="Tree Planting" class="program-img">
+			</marquee>
+                <div class="program-info">
+                    <h3>Clean Environment & Waste Management</h3>
+                    <p>Mobilizing communities against pollution and for responsible recycling.</p>
+                    <ul>
+                        <li>Clean-Up Campaigns</li>
+                        <li>Waste Segregation</li>
+                        <li>Local Partnerships</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="program-card">
+			<img src="0.jpg" alt="Tree Planting" class="program-img">
+			<marquee behavior="scroll" direction="left" amount="10">
+			<img src="00.jpg" alt="Tree Planting" class="program-img">
+			</marquee>
+			<img src="000.jpg" alt="Tree Planting" class="program-img">
+			<img src="0000.jpg" alt="Tree Planting" class="program-img">
+			<marquee behavior="scroll" direction="right" amount="10">
+			<img src="00000.jpg" alt="Tree Planting" class="program-img">
+			</marquee>
+                <div class="program-info">
+                    <h3>Environmental Education Program</h3>
+                    <p>Ensuring sustainable knowledge reaches every corner of Tanzania.</p>
+                    <ul>
+                        <li>School/University Workshops</li>
+                        <li>Material Development</li>
+                        <li>Youth Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="get-involved">
+        <h2>Get Involved</h2>
+        <p class="intro-text">Meaningful environmental change requires collective action. Join the movement today.</p>
+
+        <div class="involve-card">
+            <h3>  Volunteer With Us</h3>
+            <p>Join tree planting, clean-ups, and education workshops.</p>
+            <form class="form-mini">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="btn-send">Apply as a Volunteer</button>
+            </form>
+        </div>
+
+        <div class="involve-card">
+            <h3> Become a Member</h3>
+            <p>Join our network of advocates (Aged 18+).</p>
+            <form class="form-mini">
+                <input type="text" placeholder="Full Name" required>
+                <input type="number" placeholder="Age" required>
+                <button type="submit" class="btn-send">Join Now</button>
+            </form>
+        </div>
+
+        <div class="involve-card">
+            <h3>Partner With Us</h3>
+            <p>Collaborate with us to scale impact (Schools, NGOs, Corporates).</p>
+            <form class="form-mini">
+                <input type="text" placeholder="Organization Name" required>
+                <select class="full-width">
+                    <option>Select Type</option>
+                    <option>Corporate</option>
+                    <option>University</option>
+                    <option>NGO</option>
+                </select>
+                <button type="submit" class="btn-send">Explore Partnership</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="donate" style="background: var(--white);">
+        <h2>Support a Greener Tanzania</h2>
+        <div class="donate-container">
+            <div class="impact-table">
+                <h3> How Your Donation Helps</h3>
+                <div class="impact-row">Supplies tree seedlings </span></div>
+                <div class="impact-row">Education materials </span></div>
+                <div class="impact-row">Clean-up initiative </span></div>
+                <div class="impact-row">Green skills training </span></div>
+                <a href="#" class="big-donate-btn">DONATE NOW</a>
+            </div>
+            <div>
+                <h3>💳 Ways to Donate</h3>
+                <p>Mobile Money (M-Pesa, Airtel), Bank Transfer, Visa/Mastercard.</p>
+                <div class="impact-table" style="margin-top:20px; background: #eee;">
+                    <h4>Transparency</h4>
+                    <p style="font-size: 0.85rem;">Every contribution is tracked to ensure maximum environmental impact and we provide clear annual reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--light-bg);">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div>
+                <h3>Connect With Us</h3>
+                <p><strong>📍 Location:</strong> Matangini Street, Saranga, Ubungo, Dar es Salaam.</p>
+                <p><strong>✉️ Email:</strong> greenlegacytanzania@gmail.com
+				/ mulokozijoshua1@gmail.com</p>
+                <p><strong>📞 Call:</strong> +255 743 219 508</p>
+                <p><strong>⏰ Hours:</strong> Mon-Fri (8:00AM - 5:00PM EAT)</p>
+                
+                <div class="social-icons">
+                    <a href="#">Instagram</a>
+                    <a href="#">X (Twitter)</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+            <div class="contact-box">
+                <form class="form-mini" style="background: transparent; padding:0;">
+                    <input type="text" placeholder="Your Name" required class="full-width">
+                    <input type="email" placeholder="Your Email" required class="full-width">
+                    <select class="full-width">
+                        <option>Subject: General Inquiry</option>
+                        <option>Subject: Partnership</option>
+                        <option>Subject: Donation</option>
+                    </select>
+                    <textarea placeholder="Your Message" rows="4" class="full-width"></textarea>
+                    <button type="submit" class="btn-send">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Green Legacy Tanzania. Registered NGO No. 24 of 2002.</p>
+        <p>Matangini Street, Saranga, Ubungo, Dar es Salaam.</p>
+    </footer>
+
+</body>
+</html>
+
